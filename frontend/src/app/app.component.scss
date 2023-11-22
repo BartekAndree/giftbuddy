@@ -1,0 +1,57 @@
+@import "src/styles.scss";
+
+.toolbar {
+  width: 100%;
+  height: $navbar-height;
+  display: flex;
+  align-items: center;
+  background-color: $primary-color;
+  color: $white-color;
+  font-weight: $font-weight-bold;
+
+  &__logo {
+    margin: 0 $spacing-medium;
+  }
+
+  &__brand-name {
+    // Add brand name specific styles here if needed
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+
+  &__button {
+    background-color: $white-color;
+    color: $primary-color;
+    border: none;
+    padding: $spacing-small $spacing-medium;
+    margin: 0 $spacing-small;
+    border-radius: $border-radius-base;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+      background-color: $light-grey;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.125rem rgba($primary-color, 0.3);
+    }
+
+    &--sign-up {
+      // Add specific styles for sign up button if needed
+    }
+  }
+}
+
+.content {
+  display: flex;
+  margin: $spacing-xlarge auto $spacing-large;
+  padding: 0 $spacing-medium;
+  max-width: $container-max-width;
+  flex-direction: column;
+  align-items: center;
+}

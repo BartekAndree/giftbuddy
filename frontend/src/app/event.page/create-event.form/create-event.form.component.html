@@ -1,0 +1,32 @@
+<form [formGroup]="eventForm" (ngSubmit)="submitForm()">
+  <mat-form-field appearance="fill">
+    <mat-label>Organizer ID</mat-label>
+    <input matInput formControlName="organizerId">
+    <mat-error *ngIf="eventForm.get('organizerId')?.invalid">
+      Invalid Organizer ID
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+    <mat-error *ngIf="eventForm.get('title')?.errors?.['required']">
+      Title is required
+    </mat-error>
+    <!-- inne błędy -->
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>End Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="endDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="eventForm.get('endDate')?.errors?.['notInFuture']">
+      Date must be in the future
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!eventForm.valid">
+    Create Event
+  </button>
+</form>
